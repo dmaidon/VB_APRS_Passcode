@@ -45,7 +45,7 @@ Partial Class FrmMain
         Me.TxtCallsign.Location = New System.Drawing.Point(57, 9)
         Me.TxtCallsign.Name = "TxtCallsign"
         Me.TxtCallsign.Size = New System.Drawing.Size(100, 20)
-        Me.TxtCallsign.TabIndex = 1
+        Me.TxtCallsign.TabIndex = 0
         '
         'Label2
         '
@@ -61,14 +61,14 @@ Partial Class FrmMain
         Me.TxtPasscode.Location = New System.Drawing.Point(70, 41)
         Me.TxtPasscode.Name = "TxtPasscode"
         Me.TxtPasscode.Size = New System.Drawing.Size(74, 20)
-        Me.TxtPasscode.TabIndex = 3
+        Me.TxtPasscode.TabIndex = 1
         '
         'BtnGenerate
         '
         Me.BtnGenerate.Location = New System.Drawing.Point(47, 73)
         Me.BtnGenerate.Name = "BtnGenerate"
         Me.BtnGenerate.Size = New System.Drawing.Size(75, 23)
-        Me.BtnGenerate.TabIndex = 4
+        Me.BtnGenerate.TabIndex = 2
         Me.BtnGenerate.Text = "Generate"
         Me.BtnGenerate.UseVisualStyleBackColor = true
         '
