@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmMain
+Partial Friend Class FrmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmMain
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtPasscode = New System.Windows.Forms.TextBox()
         Me.BtnGenerate = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblCpy = New System.Windows.Forms.Label()
         Me.SuspendLayout
         '
         'Label1
@@ -72,23 +72,23 @@ Partial Class FrmMain
         Me.BtnGenerate.Text = "Generate"
         Me.BtnGenerate.UseVisualStyleBackColor = true
         '
-        'Label3
+        'LblCpy
         '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(0,Byte),Integer))
-        Me.Label3.Location = New System.Drawing.Point(13, 104)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(143, 15)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "©2018, PAROLE Software"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblCpy.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.LblCpy.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(0,Byte),Integer))
+        Me.LblCpy.Location = New System.Drawing.Point(7, 104)
+        Me.LblCpy.Name = "LblCpy"
+        Me.LblCpy.Size = New System.Drawing.Size(154, 15)
+        Me.LblCpy.TabIndex = 5
+        Me.LblCpy.Text = "©2018, PAROLE Software"
+        Me.LblCpy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(169, 128)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.LblCpy)
         Me.Controls.Add(Me.BtnGenerate)
         Me.Controls.Add(Me.TxtPasscode)
         Me.Controls.Add(Me.Label2)
@@ -110,5 +110,5 @@ End Sub
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtPasscode As TextBox
     Friend WithEvents BtnGenerate As Button
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LblCpy As Label
 End Class
