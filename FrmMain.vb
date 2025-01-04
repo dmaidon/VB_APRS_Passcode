@@ -15,21 +15,22 @@
     ''' <param name="pc"></param>
     ''' <returns></returns>
     Private Shared Function GenPc(pc As String) As Long
-        'strip station designators. ex: "-5"  Only the real call sign is used
-        Dim stophere As Integer = InStr(pc, "-") - 1
+        ' Strip station designators. ex: "-5" Only the real call sign is used
+        Dim stophere As Integer = pc.IndexOf("-"c)
         If stophere > 0 Then
-            pc = pc.Split("-"c)(0)
+            pc = pc.Substring(0, stophere)
         End If
 
-        ''the Hash must be 29666 (non-negotiable)
+        ' The Hash must be 29666 (non-negotiable)
         Dim hash As Long = 29666
 
-        For j = 1 To pc.Length
-            hash = If(CBool(j Mod 2), hash Xor (Asc(Mid(pc.ToUpper(), j, 1)) << 8), hash Xor Asc(Mid(pc.ToUpper(), j, 1)))
+        For j = 0 To pc.Length - 1
+            Dim charValue As Integer = Asc(pc(j).ToString().ToUpper())
+            hash = If(j Mod 2 = 0, hash Xor (charValue << 8), hash Xor charValue)
         Next
 
-        ''mask the high bit so that the result is always positive
-        GenPc = hash And 65535
+        ' Mask the high bit so that the result is always positive
+        Return hash And 65535
     End Function
 
     Private Sub BtnGenerate_Click(sender As Object, e As EventArgs) Handles BtnGenerate.Click
