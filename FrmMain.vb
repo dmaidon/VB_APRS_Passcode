@@ -13,7 +13,7 @@
     ''' ex: Passcode = GenPC("K4DNM") ''pass or convert callsign to upper case converted from http://blog.eagleflint.com/wp-content/2012/05/APRS-IS_Passcode and https://github.com/PHP-APRS-PASSCODE
     ''' </summary>
     ''' <param name="pc"></param>
-    ''' <returns></returns>
+    ''' <returns></returns> 
     Private Shared Function GenPc(pc As String) As Long
         ' Strip station designators. ex: "-5" Only the real call sign is used
         Dim stophere As Integer = pc.IndexOf("-"c)
