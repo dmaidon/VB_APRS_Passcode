@@ -32,62 +32,68 @@ Partial Friend Class FrmMain
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Location = New System.Drawing.Point(11, 13)
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 20)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.Size = New System.Drawing.Size(68, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Callsign:"
         '
         'TxtCallsign
         '
         Me.TxtCallsign.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtCallsign.Location = New System.Drawing.Point(57, 9)
+        Me.TxtCallsign.Location = New System.Drawing.Point(86, 14)
+        Me.TxtCallsign.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtCallsign.Name = "TxtCallsign"
-        Me.TxtCallsign.Size = New System.Drawing.Size(100, 20)
+        Me.TxtCallsign.Size = New System.Drawing.Size(148, 26)
         Me.TxtCallsign.TabIndex = 0
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
-        Me.Label2.Location = New System.Drawing.Point(11, 45)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 69)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 13)
+        Me.Label2.Size = New System.Drawing.Size(83, 20)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Passcode:"
         '
         'TxtPasscode
         '
-        Me.TxtPasscode.Location = New System.Drawing.Point(70, 41)
+        Me.TxtPasscode.Location = New System.Drawing.Point(105, 63)
+        Me.TxtPasscode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtPasscode.Name = "TxtPasscode"
-        Me.TxtPasscode.Size = New System.Drawing.Size(74, 20)
+        Me.TxtPasscode.Size = New System.Drawing.Size(109, 26)
         Me.TxtPasscode.TabIndex = 1
         '
         'BtnGenerate
         '
-        Me.BtnGenerate.Location = New System.Drawing.Point(47, 73)
+        Me.BtnGenerate.Location = New System.Drawing.Point(70, 112)
+        Me.BtnGenerate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnGenerate.Name = "BtnGenerate"
-        Me.BtnGenerate.Size = New System.Drawing.Size(75, 23)
+        Me.BtnGenerate.Size = New System.Drawing.Size(112, 35)
         Me.BtnGenerate.TabIndex = 2
         Me.BtnGenerate.Text = "Generate"
-        Me.BtnGenerate.UseVisualStyleBackColor = true
+        Me.BtnGenerate.UseVisualStyleBackColor = True
         '
         'LblCpy
         '
-        Me.LblCpy.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.LblCpy.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(0,Byte),Integer))
-        Me.LblCpy.Location = New System.Drawing.Point(7, 104)
+        Me.LblCpy.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCpy.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LblCpy.Location = New System.Drawing.Point(10, 160)
+        Me.LblCpy.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblCpy.Name = "LblCpy"
-        Me.LblCpy.Size = New System.Drawing.Size(154, 15)
+        Me.LblCpy.Size = New System.Drawing.Size(231, 48)
         Me.LblCpy.TabIndex = 5
         Me.LblCpy.Text = "©2018, PAROLE Software"
         Me.LblCpy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FrmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(169, 128)
+        Me.ClientSize = New System.Drawing.Size(254, 209)
         Me.Controls.Add(Me.LblCpy)
         Me.Controls.Add(Me.BtnGenerate)
         Me.Controls.Add(Me.TxtPasscode)
@@ -95,7 +101,8 @@ Partial Friend Class FrmMain
         Me.Controls.Add(Me.TxtCallsign)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.MaximizeBox = false
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.MaximizeBox = False
         Me.Name = "FrmMain"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
