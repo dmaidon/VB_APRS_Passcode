@@ -1,78 +1,57 @@
 ﻿Friend Class FrmMain
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim currentYear As Integer = Now.Year
+        Dim currentYear As Integer = DateTime.Now.Year
         Dim cpy As String = $"©2018-{currentYear}, PAROLE Software{vbLf}All rights reserved."
-        With Me
-            .Text = "APRS Passcode Generator"
-            .LblCpy.Text = cpy
-        End With
+
+        Text = "APRS Passcode Generator"
+        LblCpy.Text = cpy
     End Sub
 
     ''' <summary>
-    ''' The following code was converted from PHP and Python to VB.Net. Pass the call sign to the function
-    ''' and it will return the passcode as a Long integer.
-    ''' The passcode is used to authenticate with the APRS-IS servers.
+    ''' Generates APRS-IS passcode from amateur radio call sign.
+    ''' Converted from PHP/Python implementations with performance optimizations.
     '''
-    ''' The passcode is generated from the call sign by XORing the ASCII values of the characters in the call sign.
-    ''' The first character is shifted left by 8 bits, and the second character is not shifted.
-    ''' This process continues for each character in the call sign.
-    ''' The result is then masked to ensure it is always a positive number.
+    ''' The passcode authenticates with APRS-IS servers using a standardized algorithm:
+    ''' - Starts with hash value 29666 (APRS standard)
+    ''' - XORs ASCII values: even positions shifted left 8 bits, odd positions unchanged
+    ''' - Result masked to 16-bit positive integer (0-65535)
     '''
-    ''' The hash must be 29666 (non-negotiable) and the result is masked to ensure it is always a positive number.
-    '''
-    ''' Example usage:
-    ''' Dim passcode As Long = GenPc("K4DNM")
-    ''' http://blog.eagleflint.com/wp-content/2012/05/APRS-IS_Passcode
-    ''' https://github.com/PHP-APRS-PASSCODE
+    ''' Example: GenPc("K4DNM") returns the appropriate passcode
+    ''' References:
+    ''' - http://blog.eagleflint.com/wp-content/2012/05/APRS-IS_Passcode
+    ''' - https://github.com/PHP-APRS-PASSCODE
     ''' </summary>
-    ''' <param name="pc"></param>
-    ''' <returns></returns>
-    '''
-    Private Shared Function GenPc(pc As String) As Long
-        If String.IsNullOrEmpty(pc) Then Return 0
+    ''' <param name="callSign">Amateur radio call sign (station designators like -5 are automatically stripped)</param>
+    ''' <returns>16-bit APRS passcode (0-65535)</returns>
+    Private Shared Function GenPc(callSign As String) As Integer
+        If String.IsNullOrEmpty(callSign) Then Return 0
 
-        ' Strip station designators. For example, "K4DNM-5" becomes "K4DNM".
-        Dim hyphenIndex As Integer = pc.IndexOf("-"c)
-        If hyphenIndex > 0 Then
-            pc = pc.Substring(0, hyphenIndex)
-        End If
+        ' Extract base call sign (remove SSID like "-5")
+        Dim baseCallSign As String = callSign.Split("-"c)(0).ToUpperInvariant()
 
-        ' Convert the entire string to uppercase once.
-        pc = pc.ToUpper()
+        ' Initialize with APRS standard hash seed
+        Const APRS_HASH_SEED As Integer = 29666
+        Dim hash As Integer = APRS_HASH_SEED
 
-        ' The hash must begin at 29666 (this constant is non-negotiable).
-        Dim hash As Long = 29666
+        ' Process each character without intermediate allocations
+        For i As Integer = 0 To baseCallSign.Length - 1
+            Dim asciiValue As Integer = AscW(baseCallSign(i))
 
-        For j As Integer = 0 To pc.Length - 1
-            Dim charValue As Integer = AscW(pc(j))
-            ' For even positions, shift left by 8 bits; for odd positions, use the original value.
-            If j Mod 2 = 0 Then
-                hash = hash Xor (charValue << 8)
-            Else
-                hash = hash Xor charValue
-            End If
+            ' XOR: even positions (0,2,4...) shift left 8 bits, odd positions (1,3,5...) unchanged
+            hash = hash Xor If(i Mod 2 = 0, asciiValue << 8, asciiValue)
         Next
 
-        ' Mask the high bit so the result is always positive (i.e., within 0 to 65535).
+        ' Return 16-bit positive result
         Return hash And &HFFFF
     End Function
 
     ''' <summary>
-    ''' Updates the passcode textbox based on the current callsign.
+    ''' Updates the passcode field when call sign changes or generate button is clicked.
     ''' </summary>
-    Private Sub UpdatePasscode()
-        Dim callSign As String = TxtCallsign.Text.Trim()
-        ' Optionally handle empty input.
-        If String.IsNullOrEmpty(callSign) Then
-            TxtPasscode.Text = String.Empty
-        Else
-            TxtPasscode.Text = GenPc(callSign).ToString()
-        End If
-    End Sub
-
     Private Sub UpdatePasscodeHandler(sender As Object, e As EventArgs) Handles BtnGenerate.Click, TxtCallsign.Leave
-        UpdatePasscode()
+        Dim callSign As String = TxtCallsign.Text?.Trim()
+        TxtPasscode.Text = If(String.IsNullOrWhiteSpace(callSign), "", GenPc(callSign).ToString())
     End Sub
 
 End Class
