@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>APRS_Passcode.My.MyApplication</StartupObject>
     <MyType>WindowsForms</MyType>
-    <AssemblyVersion>25.11.20.9149</AssemblyVersion>
+    <AssemblyVersion>25.11.20.9151</AssemblyVersion>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <OptionStrict>On</OptionStrict>
@@ -16,9 +16,12 @@
     <Company>PAROLE Software</Company>
     <Product>APRS_Passcode</Product>
     <Copyright>Copyright ©  2025</Copyright>
-    <FileVersion>25.11.20.9149</FileVersion>
+    <FileVersion>25.11.20.9151</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <InformationalVersion>25.11.22</InformationalVersion>
+    <Authors>Dennis N. Maidon</Authors>
+    <Title>APRS Passcode Generator</Title>
+    <Version>25.11.20.9150</Version>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\Release\APRS_Passcode\</OutputPath>

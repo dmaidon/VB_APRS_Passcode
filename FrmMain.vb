@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Collections.Concurrent
+﻿Imports System.Collections.Concurrent
 
 Friend Class FrmMain
 
