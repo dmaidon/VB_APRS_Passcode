@@ -12,6 +12,13 @@
     <GenerateManifests>true</GenerateManifests>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <ApplicationIcon>Martz90-Hex-Radio.ico</ApplicationIcon>
+    <AssemblyTitle>APRS Passcode Generator</AssemblyTitle>
+    <Company>PAROLE Software</Company>
+    <Product>APRS_Passcode</Product>
+    <Copyright>Copyright ©  2025</Copyright>
+    <FileVersion>25.11.20.9148</FileVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <InformationalVersion>25.11.22</InformationalVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\Release\APRS_Passcode\</OutputPath>
