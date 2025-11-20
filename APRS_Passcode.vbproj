@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>APRS_Passcode.My.MyApplication</StartupObject>
     <MyType>WindowsForms</MyType>
-    <AssemblyVersion>25.11.20.9148</AssemblyVersion>
+    <AssemblyVersion>25.11.20.9149</AssemblyVersion>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <OptionStrict>On</OptionStrict>
@@ -16,7 +16,7 @@
     <Company>PAROLE Software</Company>
     <Product>APRS_Passcode</Product>
     <Copyright>Copyright ©  2025</Copyright>
-    <FileVersion>25.11.20.9148</FileVersion>
+    <FileVersion>25.11.20.9149</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <InformationalVersion>25.11.22</InformationalVersion>
   </PropertyGroup>
